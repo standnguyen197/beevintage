@@ -1,24 +1,118 @@
 <template>
-<div>
+<div class="body-dark-app">
   <vue-headful
-            :title="fields.title.label"
-            description="Description from vue-headful"
+            :title="title"
+            description="King support Customer FacebookQ"
         />
-<div class="header-home">
-  <nav-bar/>
-  <b-container>
+ <loading :active.sync="isLoading"></loading>         
+<div>
+  <nav-bar-cpanel/>
+    <b-collapse id="collapse1">
+    <b-card style="
+    border-top: 2px solid #2b2d2f;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: #3c4146;
+    border-radius:0px;
+    border-bottom: 2px solid #303131;">
+    <b-container>
+    <p class="card-text">
     <b-row>
-        <b-col sm="12" md="8" offset-md="2">
-          <center>
-          <div class="mt-5 mb-5">
-          <h1 class="header-h1">Hướng dẫn sử dụng BeeVintage</h1>
-          </div>
-          </center>
-        </b-col>
-    </b-row>
-  </b-container>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+         <b-btn v-b-popover.hover.bottom="'Nơi bạn chỉnh sửa thông tin cá nhân!'" title="Quản lý tài khoản" style="    border-radius: 31px;
+        background: #fff0;display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <icon name="user-circle" style="margin-top: 4px;"></icon> <span style="margin-left:6px"> CÁ NHÂN </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+         <b-btn v-b-popover.hover.bottom="'Nơi bạn xem thống kê bán hàng!'" title="Quản lý thống kê" style="    border-radius: 31px;
+        background: #fff0;display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <icon name="bar-chart" style="margin-top:6px;"></icon> <span style="margin-left:6px"> THỐNG KÊ </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+          <b-btn v-b-popover.hover.bottom="'Nơi bạn chỉnh sửa thông tin cá nhân!'" title="Quản lý tài khoản" style="    border-radius: 31px;
+        background: #fff0;display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <icon name="id-card" style="margin-top:5px;"></icon> <span style="margin-left:6px"> ĐƠN HÀNG </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+         <b-btn v-b-popover.hover.bottom="'Nơi bạn chỉnh sửa thông tin cá nhân!'" title="Quản lý tài khoản" style="    border-radius: 31px;
+        background: #fff0;display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <icon name="shopping-basket" style="margin-top:4px;"></icon> <span style="margin-left:6px"> CỬA HÀNG </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+         <b-btn v-b-popover.hover.bottom="'Nơi bạn chỉnh sửa thông tin cá nhân!'" title="Quản lý tài khoản" style="    border-radius: 31px;
+     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;" variant="warning">
+        <icon name="credit-card" style="margin-top:4px;"></icon> <span style="margin-left:6px"> THANH TOÁN </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <b-btn v-b-popover.hover.bottom="'Nơi bạn chỉnh sửa thông tin cá nhân!'" title="Quản lý tài khoản" style="    border-radius: 31px;
+        background: #fff0;display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+        <icon name="cog" style="margin-top:4px;"></icon> <span style="margin-left:6px"> CÀI ĐẶT </span>
+        </b-btn>
+    </b-col>
+    <b-col sm="12" md="2" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;">
+    </b-col>
+    </b-row>  
+      </p>
+      </b-container>
+    </b-card>
+  </b-collapse>
+
+  <b-collapse id="collapse2">
+      <b-container>
+    <b-card style="
+    border-top: 2px solid #2b2d2f;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: #3c4146;
+    border-radius:0px;
+    border-bottom: 2px solid #303131;">
+      
+     Hihi
+      
+    </b-card>
+    </b-container>
+  </b-collapse>
 </div>
- 
   <div>
      <b-container>
       <b-row>
@@ -101,77 +195,87 @@
 </template>
 
 <script>
+    import Loading from 'vue-loading-overlay'
+    import 'vue-loading-overlay/dist/vue-loading.min.css'
+    import axios from 'axios'
+    export default {
 
-import axios from 'axios'
-export default {
+        name: 'appPage',
 
-  name: 'appPage',
-  data () {
-    return {
-      imgbg: '/static/photo/bg.jpg',
-      imgbg_feedback: '/static/photo/bg-feedback.jpg',
-      fields: {
-        isbn: { label: 'ISBN', sortable: true, 'class': 'text-center' },
-        title: { label: 'BeeVintage', sortable: true },
-        actions: { label: 'Action', 'class': 'text-center' }
-      },
-      books: [],
-      errors: []
+        data() {
+            return {
+                isLoading: false,
+                title: 'Quản lý ứng dụng BeeVintage - Khách hàng!'
+            }
+        },
+        components: {
+            Loading
+        },
+        created() {
+            
+            this.isLoading = true;
+            setTimeout(() => {
+                this.isLoading = false;
+            }, 500);;
+            if (!this.$session.get('authSession')) {
+                location.href = '/';
+            }
+        },
+
+        methods: {
+            
+        }
     }
-  },
-  created () {
-    axios.get(`http://localhost:3000/book`)
-    .then(response => {
-      this.books = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-  },
-  methods: {
-
-  }
-}
 </script>
 <style>
-.header-home{
-  background: linear-gradient(45deg,#9295e2 11%,#738ef5 88%);
-  height: auto;
-}
-.button-begin{
-  border-radius: 20px;
-  padding: 0px 20px;
-  border: 2px solid #FFF;
-}
-.header-h1{
-  font-weight: 700;
-  color: #FFF
-}
+    .header-home {
+        background: linear-gradient(45deg, #9295e2 11%, #738ef5 88%);
+        height: auto;
+    }
 
-.header-p{
-  color: #FFF
-}
-.btn-secondary {
-    color: #494848;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    padding: 9px 59px;
-    font-weight: 500;
-}
-.bg-frontend{
-  padding: 50px 20px;
-}
-.bg-1{
-  background: #f5f6fa;
-}
-.box-feedback{
-    background-color: white;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-    color: #4a4a4a;
-    display: block;
-    padding: 1.05rem;
-    margin-bottom: 5px;
-}
+    .button-begin {
+        border-radius: 20px;
+        padding: 0px 20px;
+        border: 2px solid #FFF;
+    }
+
+    .header-h1 {
+        font-weight: 700;
+        color: #FFF
+    }
+
+    .header-p {
+        color: #FFF
+    }
+
+    .btn-secondary {
+        color: #494848;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        padding: 9px 59px;
+        font-weight: 500;
+    }
+
+    .bg-frontend {
+        padding: 50px 20px;
+    }
+
+    .bg-1 {
+        background: #f5f6fa;
+    }
+
+    .box-feedback {
+        background-color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+        color: #4a4a4a;
+        display: block;
+        padding: 1.05rem;
+        margin-bottom: 5px;
+    }
+
+    .body-dark-app {
+        background: #3a4046;
+    }
 </style>

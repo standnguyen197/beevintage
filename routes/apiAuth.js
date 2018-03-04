@@ -65,8 +65,7 @@ router.post('/', function(req, res, next) {
       newAuth.emailProfile = emailProfile;
       newAuth.pictureProfile = pictureProfile;
       newAuth.coverProfile = coverProfile;
-    
-    
+      
       newAuth.save(function (err) {
         if (err){
           return handleError(err);
@@ -81,10 +80,40 @@ router.post('/', function(req, res, next) {
 
    }
   });
+
+ 
  
 
 });
 
+router.get('/webhook', function(req, res) {
+  if (req.query['hub.verify_token'] === 'standnguyen') {
+    res.send(req.query['hub.challenge']);
+  }
+  res.send('Error, wrong validation token');
+});
+
+router.post('/webhook', function(req, res) {
+  var entries = req.body.entry;
+  // for (var entry of entries) {
+  //   var messaging = entry.messaging;
+  //   for (var message of messaging) {
+  //     var senderId = message.sender.id;
+  //     if (message.message) {
+  //       // If user send text
+  //       if (message.message.text) {
+  //         var text = message.message.text;
+  //         console.log(text); // In tin nhắn người dùng
+  //         sendMessage(senderId, "Trả lời: " + text);
+  //       }
+  //     }
+  //   }
+  // }
+  console.log(entries);
+ 
+  res.status(200).send("OK");
+});
+ 
 /* UPDATE BOOK */
 // router.put('/:id', function(req, res, next) {
 //   console.log(req.body);

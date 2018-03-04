@@ -4,6 +4,7 @@ import indexPage from '@/components/indexPage'
 import guidePage from '@/components/layout/guidePage'
 import trialPage from '@/components/layout/trialPage'
 import loginFacebook from '@/components/auth/loginFacebook'
+import PageNotFound from '@/components/error/pageNotFound'
 import appPage from '@/components/cPanel/'
 Vue.use(Router)
 
@@ -13,6 +14,10 @@ export default new Router({
       path: '/',
       name: 'HomePage',
       component: indexPage
+    },
+    {
+      path: "*",
+      component: PageNotFound
     },
      {
        path: '/huong-dan',

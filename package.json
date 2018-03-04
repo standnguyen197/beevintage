@@ -29,7 +29,9 @@
     "serve-favicon": "^2.4.5",
     "vue": "^2.5.2",
     "vue-awesome": "^2.3.5",
+    "vue-full-loading": "^1.2.0",
     "vue-headful": "^1.0.0",
+    "vue-loading-overlay": "^2.0.2",
     "vue-router": "^3.0.1",
     "vue-session": "^1.0.0"
   },

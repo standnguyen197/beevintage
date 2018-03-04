@@ -18,6 +18,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 app.use('/books', express.static(path.join(__dirname, 'dist')));
@@ -38,7 +39,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
 });
 
 module.exports = app;

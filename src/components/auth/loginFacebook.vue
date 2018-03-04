@@ -26,17 +26,16 @@
      <b-col sm="12" md="12" >
       <h2 >
         <center> 
-    
-    <div v-if="isConnected"
-      class="information" style="margin-top:30px;">
-        <div class='card card-profile text-center'>
+  <div v-if="isConnected"
+      style="margin-top:30px;"  class="col-sm-12 col-md-8 offset-md-0">
+  <div class='card card-profile text-center'>
   <img alt='' class='card-img-top' :src="pictureCover">
   <div class='card-block'>
     <img alt='' class='card-img-profile' :src="picture">
     <center>
-    <h4 class='card-title'>
+    <h4 class='card-title' style="text-align:center">
       {{name}}
-      <small>WEBCOME TO BEEVINTAGE!</small>
+      <small style="text-align:center">WEBCOME TO BEEVINTAGE!</small>
     </h4>
     </center>
     <div class='card-links'>
@@ -52,7 +51,7 @@
                VÀO APP NÀO
             </b-button>
           </b-link>
-         <b-button size="md" variant="warning" class="mt-2" style="    background-color: #3b5998;
+         <b-button size="md" variant="warning"  style="    background-color: #3b5998;
     border-color: #3b5998;color: #494848; padding: 9px 0px;
             font-weight: 500;
             cursor: pointer; width:230px;text-align:center;color:#FFF;line-height: 34px;" @click="onLogout">
@@ -63,15 +62,15 @@
 </div>  
     </div>
     <div v-else-if="this.$session.get('authSession')"
-      class="information" style="margin-top:30px;">
+       style="margin-top:30px;" class="col-sm-12 col-md-8 offset-md-0">
         <div class='card card-profile text-center'>
   <img alt='' class='card-img-top' :src="this.$session.get('authSession').userData.cover">
   <div class='card-block'>
     <img alt='' class='card-img-profile' :src="this.$session.get('authSession').userData.picture">
     <center>
-    <h4 class='card-title'>
+    <h4 class='card-title' style="text-align:center">
       {{this.$session.get('authSession').userData.name}}
-      <small>WEBCOME TO BEEVINTAGE!</small>
+      <small style="text-align:center">WEBCOME TO BEEVINTAGE!</small>
     </h4>
     </center>
     <div class='card-links'>
@@ -87,7 +86,7 @@
                VÀO APP NÀO
             </b-button>
           </b-link>
-     <b-button size="md" variant="warning" class="mt-2" style="    background-color: #3b5998;
+     <b-button size="md" variant="warning"  style="    background-color: #3b5998;
     border-color: #3b5998;color: #494848; padding: 9px 0px;
             font-weight: 500;
             cursor: pointer; width:230px;text-align:center;color:#FFF;line-height: 34px;" @click="onLogoutSesion">
@@ -256,7 +255,7 @@
     }
 
     .card-profile {
-        width: 340px;
+        max-width: 100%;
         margin: 50px auto;
         background-color: #e6e5e1;
         border-radius: 0;
