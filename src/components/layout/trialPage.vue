@@ -44,11 +44,10 @@ export default {
       imgbg_feedback: '/static/photo/bg-feedback.jpg',
       title: 'Thử sử dụng sản phẩm trong 14 ngày!'
     }
-  },
- 
-
+  }
 }
 </script>
+
 <style>
 .header-home{
   background: linear-gradient(45deg,#9295e2 11%,#738ef5 88%);

@@ -96,8 +96,7 @@ Vue.component('nav-bar-cpanel', {
 })
 
 export default {
-  name: 'app',
-
+  name: 'app'
 }
 </script>
 
